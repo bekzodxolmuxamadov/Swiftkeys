@@ -1,0 +1,18 @@
+{
+    "name": "SwiftKeys Academy",
+    "short_name": "SwiftKeys",
+    "description": "Master touch typing with interactive lessons",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#1a2a6c",
+    "theme_color": "#1a2a6c",
+    "orientation": "any",
+    "icons": [
+        {
+            "src": "favicon.svg",
+            "sizes": "512x512",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        }
+    ]
+}

@@ -439,3 +439,226 @@ textarea:focus {
     opacity: 0.5;
     cursor: not-allowed;
 }
+
+/* Mobile Responsive Design */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .subtitle {
+        font-size: 1em;
+    }
+
+    .logo-image {
+        height: 60px;
+    }
+
+    .difficulty-selector {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .difficulty-btn {
+        padding: 8px 15px;
+        font-size: 0.9em;
+        flex: 1;
+        min-width: 100px;
+    }
+
+    .stats {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .stat {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .game-container {
+        padding: 15px;
+    }
+
+    .text-display {
+        font-size: 1em;
+        padding: 15px;
+        margin-bottom: 15px;
+        max-height: 150px;
+        overflow-y: auto;
+    }
+
+    textarea {
+        font-size: 1em;
+        padding: 10px;
+        height: 80px;
+    }
+
+    .buttons {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .btn {
+        flex: 1;
+        min-width: 100px;
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+
+    .result-stats {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .result-item {
+        padding: 10px;
+    }
+
+    .result-value {
+        font-size: 1.2em;
+    }
+
+    .keyboard {
+        display: none; /* Hide virtual keyboard on mobile */
+    }
+
+    .typing-guide {
+        padding: 15px;
+    }
+
+    .guide-content {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .guide-item {
+        padding: 8px;
+    }
+
+    .guide-number {
+        width: 25px;
+        height: 25px;
+        font-size: 0.9em;
+    }
+
+    .guide-text h4 {
+        font-size: 1em;
+    }
+
+    .guide-text p {
+        font-size: 0.9em;
+    }
+}
+
+/* Small Mobile Devices */
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .subtitle {
+        font-size: 0.9em;
+    }
+
+    .logo-image {
+        height: 50px;
+    }
+
+    .difficulty-btn {
+        font-size: 0.8em;
+        padding: 6px 12px;
+    }
+
+    .text-display {
+        font-size: 0.9em;
+        padding: 12px;
+    }
+
+    textarea {
+        font-size: 0.9em;
+        padding: 8px;
+        height: 70px;
+    }
+
+    .btn {
+        font-size: 0.8em;
+        padding: 6px 12px;
+    }
+
+    .result-value {
+        font-size: 1.1em;
+    }
+}
+
+/* Landscape Mode */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .container {
+        max-width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        align-items: start;
+    }
+
+    header {
+        grid-column: 1 / -1;
+    }
+
+    .game-container {
+        margin: 0;
+    }
+
+    .typing-guide {
+        margin: 0;
+    }
+
+    .text-display {
+        max-height: 100px;
+    }
+
+    textarea {
+        height: 60px;
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) {
+    .difficulty-btn:hover,
+    .btn:hover,
+    .guide-item:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    .difficulty-btn:active,
+    .btn:active,
+    .guide-item:active {
+        transform: scale(0.98);
+    }
+}
+
+/* Add smooth scrolling for iOS devices */
+@supports (-webkit-overflow-scrolling: touch) {
+    .text-display {
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* High-DPI Screen Optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .text-display,
+    textarea {
+        font-smoothing: antialiased;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
