@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwiftKeys Academy - Master Touch Typing</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="logo.svg" alt="SwiftKeys Academy Logo" class="logo-image">
+                <span class="logo-icon">⌨️</span>
+                <h1>SwiftKeys Academy</h1>
+            </div>
+            <p class="subtitle">Unlock Your Typing Potential</p>
+            
+            <div class="difficulty-selector">
+                <button class="difficulty-btn" data-level="beginner">
+                    <span class="level-icon">🌱</span>
+                    Beginner
+                </button>
+                <button class="difficulty-btn active" data-level="intermediate">
+                    <span class="level-icon">🚀</span>
+                    Intermediate
+                </button>
+                <button class="difficulty-btn" data-level="advanced">
+                    <span class="level-icon">⭐</span>
+                    Advanced
+                </button>
+            </div>
+
+            <div class="stats">
+                <div class="stat">
+                    <span>Speed:</span>
+                    <span id="wpm">0 WPM</span>
+                    <div class="progress-bar">
+                        <div class="progress" id="speedProgress"></div>
+                    </div>
+                </div>
+                <div class="stat">
+                    <span>Accuracy:</span>
+                    <span id="accuracy">100%</span>
+                    <div class="progress-bar">
+                        <div class="progress" id="accuracyProgress"></div>
+                    </div>
+                </div>
+                <div class="stat">
+                    <span>Time:</span>
+                    <span id="time">60s</span>
+                    <div class="progress-bar">
+                        <div class="progress" id="timeProgress"></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="game-container">
+            <div class="text-display" id="textDisplay"></div>
+            <div class="input-area">
+                <textarea id="textInput" placeholder="Click 'Start Test' button to begin typing..." disabled></textarea>
+            </div>
+
+            <div class="buttons">
+                <button id="startBtn" class="btn pulse">Start Test</button>
+                <button id="resetBtn" class="btn">Reset</button>
+                <button id="pauseBtn" class="btn">Pause</button>
+            </div>
+
+            <div class="results hidden" id="results">
+                <h2>Your Results</h2>
+                <div class="result-stats">
+                    <div class="result-item">
+                        <span class="result-label">Final Speed:</span>
+                        <span class="result-value" id="finalSpeed">0 WPM</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Final Accuracy:</span>
+                        <span class="result-value" id="finalAccuracy">0%</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Characters Typed:</span>
+                        <span class="result-value" id="charsTyped">0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Mistakes:</span>
+                        <span class="result-value" id="mistakes">0</span>
+                    </div>
+                </div>
+                <div class="achievement" id="achievement">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3176/3176366.png" alt="Achievement" width="64">
+                    <p>Keep practicing to improve your score!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="typing-guide">
+            <h3>Quick Tips for Better Typing</h3>
+            <div class="guide-content">
+                <div class="guide-item">
+                    <span class="guide-number">1</span>
+                    <div class="guide-text">
+                        <h4>Home Position</h4>
+                        <p>Place your fingers on ASDF (left) and JKL; (right)</p>
+                    </div>
+                </div>
+                <div class="guide-item">
+                    <span class="guide-number">2</span>
+                    <div class="guide-text">
+                        <h4>Watch the Screen</h4>
+                        <p>Focus on the text, not your hands</p>
+                    </div>
+                </div>
+                <div class="guide-item">
+                    <span class="guide-number">3</span>
+                    <div class="guide-text">
+                        <h4>Take Breaks</h4>
+                        <p>Rest your hands every 20 minutes</p>
+                    </div>
+                </div>
+                <div class="guide-item">
+                    <span class="guide-number">4</span>
+                    <div class="guide-text">
+                        <h4>Stay Relaxed</h4>
+                        <p>Don't force speed, accuracy comes first</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="keyboard">
+            <div class="keyboard-row">
+                <div class="key" data-key="`">~</div>
+                <div class="key" data-key="1">1</div>
+                <div class="key" data-key="2">2</div>
+                <div class="key" data-key="3">3</div>
+                <div class="key" data-key="4">4</div>
+                <div class="key" data-key="5">5</div>
+                <div class="key" data-key="6">6</div>
+                <div class="key" data-key="7">7</div>
+                <div class="key" data-key="8">8</div>
+                <div class="key" data-key="9">9</div>
+                <div class="key" data-key="0">0</div>
+                <div class="key" data-key="-">-</div>
+                <div class="key" data-key="=">=</div>
+                <div class="key backspace" data-key="Backspace">⌫</div>
+            </div>
+            <div class="keyboard-row">
+                <div class="key tab" data-key="Tab">Tab</div>
+                <div class="key" data-key="q">Q</div>
+                <div class="key" data-key="w">W</div>
+                <div class="key" data-key="e">E</div>
+                <div class="key" data-key="r">R</div>
+                <div class="key" data-key="t">T</div>
+                <div class="key" data-key="y">Y</div>
+                <div class="key" data-key="u">U</div>
+                <div class="key" data-key="i">I</div>
+                <div class="key" data-key="o">O</div>
+                <div class="key" data-key="p">P</div>
+                <div class="key" data-key="[">[</div>
+                <div class="key" data-key="]">]</div>
+                <div class="key" data-key="\">\</div>
+            </div>
+            <div class="keyboard-row">
+                <div class="key caps" data-key="CapsLock">Caps</div>
+                <div class="key home-key" data-key="a">A</div>
+                <div class="key home-key" data-key="s">S</div>
+                <div class="key home-key" data-key="d">D</div>
+                <div class="key home-key" data-key="f">F</div>
+                <div class="key" data-key="g">G</div>
+                <div class="key" data-key="h">H</div>
+                <div class="key home-key" data-key="j">J</div>
+                <div class="key home-key" data-key="k">K</div>
+                <div class="key home-key" data-key="l">L</div>
+                <div class="key home-key" data-key=";">;</div>
+                <div class="key" data-key="'">'</div>
+                <div class="key enter" data-key="Enter">Enter</div>
+            </div>
+            <div class="keyboard-row">
+                <div class="key shift" data-key="Shift">Shift</div>
+                <div class="key" data-key="z">Z</div>
+                <div class="key" data-key="x">X</div>
+                <div class="key" data-key="c">C</div>
+                <div class="key" data-key="v">V</div>
+                <div class="key" data-key="b">B</div>
+                <div class="key" data-key="n">N</div>
+                <div class="key" data-key="m">M</div>
+                <div class="key" data-key=",">,</div>
+                <div class="key" data-key=".">.</div>
+                <div class="key" data-key="/">/</div>
+                <div class="key shift-right" data-key="Shift">Shift</div>
+            </div>
+            <div class="keyboard-row">
+                <div class="key space" data-key=" ">Space</div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
