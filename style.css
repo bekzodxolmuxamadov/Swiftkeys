@@ -440,6 +440,18 @@ textarea:focus {
     cursor: not-allowed;
 }
 
+/* Ad Container Styles */
+.ad-container {
+    display: none; /* Hidden by default */
+    margin: 20px auto;
+    text-align: center;
+    max-width: 100%;
+    overflow: hidden;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
 /* Mobile Responsive Design */
 @media screen and (max-width: 768px) {
     body {

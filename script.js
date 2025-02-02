@@ -94,6 +94,9 @@ function startTest() {
     startBtn.disabled = true;
     pauseBtn.textContent = 'Pause';
     
+    // Show ad when test starts and there's content
+    toggleAdVisibility(true);
+    
     startTimer();
     initializeText();
 }
@@ -118,19 +121,16 @@ function calculateResults() {
 
 function resetTest() {
     clearInterval(timer);
+    isTyping = false;
+    timeLeft = difficultySettings[difficultyLevel].time;
     textInput.value = '';
     textInput.disabled = true;
-    timeLeft = difficultySettings[difficultyLevel].time;
-    isTyping = false;
-    correctCharacters = 0;
-    totalCharacters = 0;
-    mistakeCount = 0;
-    totalChars = 0;
     startBtn.disabled = false;
-    timeDisplay.textContent = difficultySettings[difficultyLevel].time + 's';
-    wpmDisplay.textContent = '0 WPM';
-    accuracyDisplay.textContent = '100%';
-    initializeText();
+    results.classList.add('hidden');
+    updateDisplay();
+    
+    // Hide ad when test is reset and there's no active content
+    toggleAdVisibility(false);
 }
 
 function updateDisplay() {
@@ -237,6 +237,14 @@ function startTimer() {
             endTest();
         }
     }, 1000);
+}
+
+// Ad management
+function toggleAdVisibility(show) {
+    const adContainer = document.getElementById('mainAd');
+    if (adContainer) {
+        adContainer.style.display = show ? 'block' : 'none';
+    }
 }
 
 // Virtual keyboard functionality
